@@ -1,0 +1,29 @@
+<div class="">
+  <div class="p-[20px] bg-slate-800 h-[220px] text-white w-[100%]">
+    <div class="flex flex-col mx-auto flex-wrap w-[40%] gap-2 my-auto">
+      <div class="text-center font-semibold text-3xl">
+        Presupuesto Disponible:
+        <p>${{budget}}</p>
+      </div>
+      <div class="p-[10px] flex flex-row justify-between bg-sky-700">
+        <p class="">Ingresos: </p>
+        <span >${{entrancy}}</span>
+      </div>
+      <div class="p-[10px] flex flex-row justify-between bg-red-400">
+        <p class="">Egresos: </p>
+        <span>- ${{departure}}   <span class="bg-red-600 p-[4px] rounded"> {{percentage}}%</span> </span>
+        
+      </div>
+    </div>
+  </div>
+  <app-add-income 
+  (moneyAdded)="someMoney($event)"
+  ></app-add-income>
+  <app-incomes 
+  (updateIn)="updateIn($event)"
+  (updateOut)="updateOut($event)"
+  [incomes]="incomes"
+  [outcomes]="outcomes"
+  ></app-incomes>
+</div>
+

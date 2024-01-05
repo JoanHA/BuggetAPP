@@ -1,0 +1,41 @@
+<div class="w-[100%] bg-slate-100">
+  <form [formGroup]="IncomeForm" (ngSubmit)="sendData()">
+    <div class="flex flex-row p-[10px] gap-4 justify-center items-center">
+      <div>
+        <select class="p-[5px] shadow" formControlName="operator">
+          <option value="+" selected="true">Ingreso</option>
+          <option value="-">Egreso</option>
+        </select>
+      </div>
+      <div>
+        @if (IncomeForm.get('description')?.hasError('required') && IncomeForm.get('description')?.touched ) {
+          <p class="required-field">Este campo es obligatorio</p>
+        }
+        <input
+          type="text"
+          name="description"
+          placeholder="Descripcíon"
+          class="border-slate-400 border-2 p-[5px] shadow"
+          formControlName="description"
+        />
+      </div>
+      <div>
+        @if (IncomeForm.get('value')?.hasError('required') && IncomeForm.get('value')?.touched) {
+          <p class="required-field">Este campo es obligatorio</p>
+        }
+        <input
+          type="number"
+          name="value"
+          placeholder="Valor"
+          class="border-slate-400 border-2 p-[5px] shadow"
+          formControlName="value"
+        />
+      </div>
+      <div>
+        <button class="bg-green-400 p-[6px]  font-bold rounded shadow" type="submit">
+          Guardar
+        </button>
+      </div>
+    </div>
+  </form>
+</div>
